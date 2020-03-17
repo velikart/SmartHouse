@@ -7,11 +7,20 @@ import javax.persistence.*;
 public class CharacteristicValue {
 
     @Id
-    @GeneratedValue ( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column (name = "value")
+
+    @Column(name = "value")
     private String value;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "characteristic_id")
+    private Characteristic characteristic;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "device_id")
+    private Device device;
 
     public CharacteristicValue() {
     }
@@ -26,5 +35,21 @@ public class CharacteristicValue {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public Characteristic getCharacteristic() {
+        return characteristic;
+    }
+
+    public void setCharacteristic(Characteristic characteristic) {
+        this.characteristic = characteristic;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
     }
 }
