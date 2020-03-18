@@ -1,5 +1,6 @@
 package com.example.SmartHouse.entity;
 
+import com.example.SmartHouse.otherDataClasses.TechTypeDevice;
 import lombok.*;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -54,14 +55,14 @@ public class Device {
         this.name = name;
     }
 
-    public Device(String name, byte techType) {
+    public Device(String name, TechTypeDevice techTypeDevice) {
         this.name = name;
-        this.techType = techType;
+        this.techType = techTypeDevice.getId();
     }
 
-    public Device(String name, byte techType, boolean enabled) {
+    public Device(String name, TechTypeDevice techTypeDevice, boolean enabled) {
         this.name = name;
-        this.techType = techType;
+        this.techType = techTypeDevice.getId();
         this.enabled = enabled;
     }
 
