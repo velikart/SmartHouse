@@ -14,13 +14,11 @@ public class Room {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "name")
     private String name;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<Device> devices;
 

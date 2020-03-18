@@ -16,40 +16,33 @@ public class Device {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "name")
     private String name;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "tech_type")
     private byte techType;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "enabled")
     private boolean enabled;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "device_type_id")
     private DeviceType deviceType;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @OneToMany(mappedBy = "device", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<CharacteristicValue> characteristicValues;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "device_user",
             joinColumns = { @JoinColumn(name = "device_id") },

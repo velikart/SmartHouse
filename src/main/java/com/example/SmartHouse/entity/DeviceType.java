@@ -15,18 +15,15 @@ public class DeviceType {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "name")
     private String name;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @OneToMany(mappedBy = "deviceType", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<Device> devices;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "device_type_characteristic",
             joinColumns = { @JoinColumn(name = "device_type_id") },

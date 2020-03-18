@@ -15,28 +15,23 @@ public class User {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "name")
     private String name;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "password")
     private String password;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "phone")
     private String phone;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "mail")
     private String mail;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToMany (mappedBy = "users")
     Set<Device> devices = new HashSet<Device>();
 

@@ -13,23 +13,19 @@ public class Characteristic {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "name")
     private String name;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "unit")
     private String unit;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @OneToMany(mappedBy = "characteristic", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<CharacteristicValue> characteristicValues;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToMany (mappedBy = "characteristics")
     Set<DeviceType> deviceTypes = new HashSet<DeviceType>();
 

@@ -12,19 +12,16 @@ public class CharacteristicValue {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "value")
     private String value;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "characteristic_id")
     private Characteristic characteristic;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "device_id")
     private Device device;

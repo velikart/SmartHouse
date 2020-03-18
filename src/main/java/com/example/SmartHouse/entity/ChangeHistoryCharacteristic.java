@@ -2,6 +2,7 @@ package com.example.SmartHouse.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.Date;
 
 // Ещё не привязана с Characteristic или CharacteristicValue
 
@@ -14,20 +15,21 @@ public class ChangeHistoryCharacteristic {
     @Column(name = "id")
     private int id;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "text_change")
     private String textChange;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "value_after")
     private String valueAfter;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "value_before")
     private String valueBefore;
+
+    @Getter @Setter
+    @Column(name = "date")
+    private Date date;
 
     public ChangeHistoryCharacteristic() {
     }
