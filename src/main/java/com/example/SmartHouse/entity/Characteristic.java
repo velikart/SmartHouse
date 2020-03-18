@@ -26,8 +26,8 @@ public class Characteristic {
     @OneToMany(mappedBy = "characteristic", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<CharacteristicValue> characteristicValues;
 
-//    @ManyToMany (mappedBy = "characteristics")
-//    Set<DeviceType> deviceTypes = new HashSet<DeviceType>();
+    @ManyToMany (mappedBy = "characteristics")
+    Set<DeviceType> deviceTypes = new HashSet<DeviceType>();
 
     public Characteristic() {
     }

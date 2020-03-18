@@ -23,11 +23,11 @@ public class DeviceType {
     @OneToMany(mappedBy = "deviceType", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Device> devices;
 
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "device_type_characteristic",
-//            joinColumns = { @JoinColumn(name = "device_type_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "characteristic_id") })
-//    private Set<Characteristic> characteristics = new HashSet<Characteristic>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "device_type_characteristic",
+            joinColumns = { @JoinColumn(name = "device_type_id") },
+            inverseJoinColumns = { @JoinColumn(name = "characteristic_id") })
+    private Set<Characteristic> characteristics = new HashSet<Characteristic>();
 
     public DeviceType() {
     }

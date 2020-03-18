@@ -2,7 +2,9 @@ package com.example.SmartHouse.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "device")
@@ -38,6 +40,12 @@ public class Device {
 
     @OneToMany(mappedBy = "device", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<CharacteristicValue> characteristicValues;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "device_user",
+            joinColumns = { @JoinColumn(name = "device_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+    private Set<User> users = new HashSet<User>();
 
     public Device() {
     }
