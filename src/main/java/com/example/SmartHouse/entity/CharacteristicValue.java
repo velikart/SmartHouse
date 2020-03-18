@@ -17,10 +17,14 @@ public class CharacteristicValue {
     @Column(name = "value")
     private String value;
 
+    @Getter
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "characteristic_id")
     private Characteristic characteristic;
 
+    @Getter
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "device_id")
     private Device device;

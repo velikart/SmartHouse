@@ -19,6 +19,8 @@ public class Room {
     @Column(name = "name")
     private String name;
 
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<Device> devices;
 

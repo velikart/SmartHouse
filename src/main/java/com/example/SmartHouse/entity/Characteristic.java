@@ -23,9 +23,13 @@ public class Characteristic {
     @Column(name = "unit")
     private String unit;
 
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "characteristic", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<CharacteristicValue> characteristicValues;
 
+    @Getter
+    @Setter
     @ManyToMany (mappedBy = "characteristics")
     Set<DeviceType> deviceTypes = new HashSet<DeviceType>();
 

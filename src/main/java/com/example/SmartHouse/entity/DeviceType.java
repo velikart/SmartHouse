@@ -20,9 +20,13 @@ public class DeviceType {
     @Column(name = "name")
     private String name;
 
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "deviceType", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<Device> devices;
 
+    @Getter
+    @Setter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "device_type_characteristic",
             joinColumns = { @JoinColumn(name = "device_type_id") },

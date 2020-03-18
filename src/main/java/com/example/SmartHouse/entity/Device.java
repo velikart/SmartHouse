@@ -31,17 +31,25 @@ public class Device {
     @Column(name = "enabled")
     private boolean enabled;
 
+    @Getter
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "device_type_id")
     private DeviceType deviceType;
 
+    @Getter
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "device", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<CharacteristicValue> characteristicValues;
 
+    @Getter
+    @Setter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "device_user",
             joinColumns = { @JoinColumn(name = "device_id") },
