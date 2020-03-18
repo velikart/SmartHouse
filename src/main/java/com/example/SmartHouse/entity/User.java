@@ -1,6 +1,7 @@
 package com.example.SmartHouse.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -34,6 +35,8 @@ public class User {
     @Column(name = "mail")
     private String mail;
 
+    @Getter
+    @Setter
     @ManyToMany (mappedBy = "users")
     Set<Device> devices = new HashSet<Device>();
 
@@ -58,5 +61,6 @@ public class User {
         this.mail = mail;
     }
 
-
 }
+
+

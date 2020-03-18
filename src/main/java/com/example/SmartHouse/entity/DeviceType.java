@@ -21,7 +21,7 @@ public class DeviceType {
     private String name;
 
     @OneToMany(mappedBy = "deviceType", cascade = CascadeType.ALL, orphanRemoval = false)
-    private List<Device> devices;
+    private Set<Device> devices;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "device_type_characteristic",

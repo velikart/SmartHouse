@@ -40,7 +40,7 @@ public class Device {
     private Room room;
 
     @OneToMany(mappedBy = "device", cascade = CascadeType.ALL, orphanRemoval = false)
-    private List<CharacteristicValue> characteristicValues;
+    private Set<CharacteristicValue> characteristicValues;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "device_user",
