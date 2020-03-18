@@ -1,7 +1,8 @@
 package com.example.SmartHouse.entity;
 
+import lombok.*;
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -14,24 +15,24 @@ public class DeviceType {
     @Column(name = "id")
     private int id;
 
+    @Getter
+    @Setter
     @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "deviceType", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Device> devices;
 
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "device_type_characteristic",
+//            joinColumns = { @JoinColumn(name = "device_type_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "characteristic_id") })
+//    private Set<Characteristic> characteristics = new HashSet<Characteristic>();
+
     public DeviceType() {
     }
 
     public DeviceType(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 
@@ -43,4 +44,5 @@ public class DeviceType {
     public void removeDevices(Device device) {
         devices.remove(device);
     }
+
 }

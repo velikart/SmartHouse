@@ -1,7 +1,8 @@
 package com.example.SmartHouse.entity;
 
+import lombok.*;
 import javax.persistence.*;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "characteristic")
@@ -12,14 +13,21 @@ public class Characteristic {
     @Column(name = "id")
     private int id;
 
+    @Getter
+    @Setter
     @Column(name = "name")
     private String name;
 
+    @Getter
+    @Setter
     @Column(name = "unit")
     private String unit;
 
     @OneToMany(mappedBy = "characteristic", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<CharacteristicValue> characteristicValues;
+
+//    @ManyToMany (mappedBy = "characteristics")
+//    Set<DeviceType> deviceTypes = new HashSet<DeviceType>();
 
     public Characteristic() {
     }
@@ -33,22 +41,6 @@ public class Characteristic {
         this.unit = unit;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
     public void addCharacteristicValue(CharacteristicValue characteristicValue) {
         characteristicValue.setCharacteristic(this);
         characteristicValues.add(characteristicValue);
@@ -57,4 +49,5 @@ public class Characteristic {
     public void removeCharacteristicValue(CharacteristicValue characteristicValue) {
         characteristicValues.remove(characteristicValue);
     }
+
 }

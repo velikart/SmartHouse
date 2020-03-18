@@ -1,5 +1,6 @@
 package com.example.SmartHouse.entity;
 
+import lombok.*;
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +12,8 @@ public class CharacteristicValue {
     @Column(name = "id")
     private int id;
 
+    @Getter
+    @Setter
     @Column(name = "value")
     private String value;
 
@@ -26,14 +29,6 @@ public class CharacteristicValue {
     }
 
     public CharacteristicValue(String value) {
-        this.value = value;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
         this.value = value;
     }
 

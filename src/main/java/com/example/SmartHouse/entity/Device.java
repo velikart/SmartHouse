@@ -1,5 +1,6 @@
 package com.example.SmartHouse.entity;
 
+import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,12 +13,18 @@ public class Device {
     @Column(name = "id")
     private int id;
 
+    @Getter
+    @Setter
     @Column(name = "name")
     private String name;
 
+    @Getter
+    @Setter
     @Column(name = "tech_type")
     private byte techType;
 
+    @Getter
+    @Setter
     @Column(name = "enabled")
     private boolean enabled;
 
@@ -47,30 +54,6 @@ public class Device {
     public Device(String name, byte techType, boolean enabled) {
         this.name = name;
         this.techType = techType;
-        this.enabled = enabled;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public byte getTechType() {
-        return techType;
-    }
-
-    public void setTechType(byte techType) {
-        this.techType = techType;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
