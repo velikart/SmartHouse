@@ -3,7 +3,6 @@ package com.example.SmartHouse.entity;
 import lombok.*;
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,7 +24,7 @@ public class DeviceType {
 
     @Getter @Setter
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "device_type_characteristic",
+    @JoinTable(name = "device_type-characteristic",
             joinColumns = { @JoinColumn(name = "device_type_id") },
             inverseJoinColumns = { @JoinColumn(name = "characteristic_id") })
     private Set<Characteristic> characteristics = new HashSet<Characteristic>();
