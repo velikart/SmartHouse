@@ -1,14 +1,12 @@
 package com.example.SmartHouse.entity;
 
-import lombok.*;
+import lombok.Data;
+
 import javax.persistence.*;
-import java.util.List;
-
-
 
 @Entity @Data
-@Table(name = "room")
-public class Room {
+@Table(name = "house")
+public class House {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -19,7 +17,6 @@ public class Room {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "house_id")
-    private House house;
-
+    @JoinColumn(name = "user_id")
+    private User user;
 }

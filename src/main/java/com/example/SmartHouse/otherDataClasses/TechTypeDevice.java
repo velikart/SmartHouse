@@ -1,5 +1,9 @@
 package com.example.SmartHouse.otherDataClasses;
 
+/*
+    Класс технического типа девайсов
+*/
+
 public class TechTypeDevice {
     private byte id;
     private String name;
