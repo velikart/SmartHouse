@@ -11,8 +11,8 @@ import java.util.List;
 public class Room {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_room")
+    @SequenceGenerator(name="seq_room", sequenceName="SEQ_ROOM", allocationSize=1)
     private int id;
 
     @Column(name = "name")

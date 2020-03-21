@@ -11,8 +11,8 @@ import java.util.List;
 public class DeviceValue {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_device_value")
+    @SequenceGenerator(name="seq_device_value", sequenceName="SEQ_DEVICE_VALUE", allocationSize=1)
     private int id;
 
     @Column(name = "value")

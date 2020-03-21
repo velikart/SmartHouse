@@ -9,8 +9,8 @@ import javax.persistence.*;
 public class Providers {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_providers")
+    @SequenceGenerator(name="seq_providers", sequenceName="SEQ_PROVIDERS", allocationSize=1)
     private int id;
 
     @Column(name = "provider_token")

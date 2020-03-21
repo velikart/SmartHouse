@@ -9,9 +9,8 @@ import javax.persistence.*;
 public class ValueTypes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "def_seq")
-//TODO    @SequenceGenerator
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_value_types")
+    @SequenceGenerator(name="seq_value_types", sequenceName="SEQ_VALUE_TYPES", allocationSize=1)
     private int id;
 
     @Column(name = "name")

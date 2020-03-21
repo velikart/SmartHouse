@@ -11,8 +11,8 @@ import java.util.List;
 public class Characteristic {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_characteristic")
+    @SequenceGenerator(name="seq_characteristic", sequenceName="SEQ_CHARACTERISTIC", allocationSize=1)
     private int id;
 
     @Column(name = "name")
