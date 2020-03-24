@@ -25,10 +25,10 @@ public class Device {
     @Column(name = "enabled")
     private boolean enabled;
 
-    @Column(name = "MAC")
+    @Column(name = "mac_cl")
     private String MAC;
 
-    @Column(name = "coordinator_MAC")
+    @Column(name = "coord_mac")
     private String coordinatorMAC;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -45,5 +45,4 @@ public class Device {
 
     @OneToMany(mappedBy = "device")
     List<DeviceValue> deviceValues = new ArrayList<DeviceValue>();
-
 }

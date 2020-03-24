@@ -9,7 +9,7 @@ public interface DeviceService {
 
     void saveDevice(Device device);
 
-    void updateDevice(Integer id, DeviceType deviceType, Room room, User user, String name, String MAC, String coordinatorMAC, boolean enabled, byte techType);
+    Device updateDevice(Integer id, DeviceType deviceType, Room room, User user, String name, String MAC, String coordinatorMAC, boolean enabled, byte techType);
 
     void deleteDevice(Integer id);
 

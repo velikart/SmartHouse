@@ -29,10 +29,10 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public void updateDevice(Integer id, DeviceType deviceType,
-                             Room room, User user,
-                             String name, String MAC, String coordinatorMAC,
-                             boolean enabled, byte techType) {
+    public Device updateDevice(Integer id, DeviceType deviceType,
+                               Room room, User user,
+                               String name, String MAC, String coordinatorMAC,
+                               boolean enabled, byte techType) {
 
         Device updated = repository.findById(id).get();
         updated.setDeviceType(deviceType);
@@ -44,6 +44,7 @@ public class DeviceServiceImpl implements DeviceService {
         updated.setEnabled(enabled);
         updated.setTechType(techType);
         repository.save(updated);
+        return updated;
     }
 
     @Override
