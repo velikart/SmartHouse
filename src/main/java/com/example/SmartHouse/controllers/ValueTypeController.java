@@ -1,13 +1,9 @@
 package com.example.SmartHouse.controllers;
 
-import com.example.SmartHouse.entity.Device;
-import com.example.SmartHouse.entity.DeviceValue;
 import com.example.SmartHouse.entity.ValueTypes;
-import com.example.SmartHouse.service.DeviceService;
 import com.example.SmartHouse.service.ValueTypesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
