@@ -15,7 +15,7 @@ public class DeviceController {
     private DeviceService service;
 
     @Autowired
-    public void setNoteService(DeviceService service) {
+    public void setDeviceService(DeviceService service) {
         this.service = service;
     }
 
@@ -23,10 +23,10 @@ public class DeviceController {
             method = RequestMethod.GET,
             produces = { MediaType.APPLICATION_JSON_VALUE,
                     MediaType.APPLICATION_XML_VALUE })
-    public List<Device> getDevices(Model model) {
+    public String getDevices(Model model) {
         List<Device> list = service.findAll();
         model.addAttribute("devices",list);
-        return list;
+        return "success";
     }
 
 
@@ -36,7 +36,7 @@ public class DeviceController {
                     MediaType.APPLICATION_XML_VALUE })
     public String getDevice(@PathVariable Integer id, Model model) {
         model.addAttribute("device", service.getDeviceById(id));
-        return "";
+        return "success";
     }
 
     @RequestMapping(value = "/device/value/{id}",
@@ -44,9 +44,9 @@ public class DeviceController {
             produces = { MediaType.APPLICATION_JSON_VALUE,
                     MediaType.APPLICATION_XML_VALUE })
     public String getDeviceDeviceValue(@PathVariable Integer id, Model model) {
-        List<DeviceValue> list = service.findAllDeviceValue(id);
-        model.addAttribute("deviceValue",list);
-        return "";
+        List<DeviceValue> deviceValues = service.findAllDeviceValue(id);
+        model.addAttribute("deviceValues",deviceValues);
+        return "success";
     }
 
 
