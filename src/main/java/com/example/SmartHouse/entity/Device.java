@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity @Data
-@Table(name = "device")
+@Table(name = "DEVICE")
 public class Device {
 
     @Id
@@ -25,10 +25,10 @@ public class Device {
     @Column(name = "enabled")
     private boolean enabled;
 
-    @Column(name = "mac_cl")
+    @Column(name = "mac")
     private String MAC;
 
-    @Column(name = "coord_mac")
+    @Column(name = "coordinator_mac")
     private String coordinatorMAC;
 
     @ManyToOne(fetch = FetchType.LAZY)
